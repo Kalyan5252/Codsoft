@@ -9,6 +9,7 @@ const purchaseRouter = require('./routes/purchaseRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const globalErrorHandler = require('./controllers/errorController');
 const appError = require('./utility/AppError');
+const compression = require('compression');
 
 const cookieParser = require('cookie-parser');
 
@@ -41,6 +42,8 @@ app.use(express.static(`${__dirname}/public`));
 //   })
 // );
 // app.use("/", viewRouter);
+app.use(compression());
+
 app.use('/', viewRouter);
 app.use('/api/v1/products', productsRouter);
 app.use('/api/v1/users', usersRouter);

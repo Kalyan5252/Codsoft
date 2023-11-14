@@ -24,7 +24,7 @@ if (buyProduct) {
       ele.addEventListener('click', function (e) {
         e.target.textContent = 'Processing';
         const { productId } = e.target.dataset;
-        console.log(productId);
+        // console.log(productId);
         // location.assign(
         //   `http://127.0.0.1:8800/api/v1/purchases/checkout-session/${productId}`
         // );

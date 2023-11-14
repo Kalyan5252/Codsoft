@@ -11,7 +11,7 @@ exports.setProductUserIds = catchAsync(async (req, res, next) => {
   if (!req.body.product) req.body.product = product.id;
 
   if (!req.body.user) req.body.user = req.user.id;
-  console.log(req.body);
+  // console.log(req.body);
   next();
 });
 

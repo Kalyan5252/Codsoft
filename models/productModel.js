@@ -86,7 +86,7 @@ productSchema.virtual('reviews', {
 });
 
 productSchema.pre('save', function (next) {
-  console.log(this);
+  // console.log(this);
   this.slug = slugify(this.productName, { lower: true });
   next();
 });

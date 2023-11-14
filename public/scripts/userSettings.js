@@ -3,7 +3,7 @@ import { showAlert } from './alerts';
 
 export const updateProfile = async (data) => {
   try {
-    const url = 'http://127.0.0.1:8800/api/v1/users/updateUserData';
+    const url = '/api/v1/users/updateUserData';
     const res = await axios({
       method: 'PATCH',
       url,
@@ -20,7 +20,7 @@ export const updateProfile = async (data) => {
 
 export const makeReivew = async (data) => {
   try {
-    const url = 'http://127.0.0.1:8800/api/v1/reviews/';
+    const url = '/api/v1/reviews/';
     const res = await axios({
       method: 'POST',
       url,
@@ -39,7 +39,7 @@ export const makeReivew = async (data) => {
 export const makePurchase = async (data) => {
   try {
     // console.log('make Purchase');
-    const url = `http://127.0.0.1:8800/api/v1/purchases/checkout-session/${data}`;
+    const url = `/api/v1/purchases/checkout-session/${data}`;
     const res = await axios({
       method: 'GET',
       url,
@@ -48,10 +48,10 @@ export const makePurchase = async (data) => {
       // console.log(res);
       location.assign(res.data.session.url);
     } else {
-      location.assign('http://127.0.0.1:8800/login');
+      location.assign('/login');
     }
   } catch (err) {
-    location.assign('http://127.0.0.1:8800/login');
+    location.assign('/login');
     showAlert('login_failure', err.response.data.message);
   }
 };

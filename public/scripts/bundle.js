@@ -1154,7 +1154,7 @@ module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],"../../node_modules/node-libs-browser/node_modules/buffer/index.js":[function(require,module,exports) {
+},{}],"../../node_modules/buffer/index.js":[function(require,module,exports) {
 
 var global = arguments[3];
 /*!
@@ -2947,7 +2947,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":"../../node_modules/base64-js/index.js","ieee754":"../../node_modules/ieee754/index.js","isarray":"../../node_modules/isarray/index.js","buffer":"../../node_modules/node-libs-browser/node_modules/buffer/index.js"}],"../../node_modules/axios/lib/helpers/toFormData.js":[function(require,module,exports) {
+},{"base64-js":"../../node_modules/base64-js/index.js","ieee754":"../../node_modules/ieee754/index.js","isarray":"../../node_modules/isarray/index.js","buffer":"../../node_modules/buffer/index.js"}],"../../node_modules/axios/lib/helpers/toFormData.js":[function(require,module,exports) {
 var Buffer = require("buffer").Buffer;
 'use strict';
 
@@ -3141,7 +3141,7 @@ function toFormData(obj, formData, options) {
   return formData;
 }
 var _default = exports.default = toFormData;
-},{"../utils.js":"../../node_modules/axios/lib/utils.js","../core/AxiosError.js":"../../node_modules/axios/lib/core/AxiosError.js","../platform/node/classes/FormData.js":"../../node_modules/axios/lib/helpers/null.js","buffer":"../../node_modules/node-libs-browser/node_modules/buffer/index.js"}],"../../node_modules/axios/lib/helpers/AxiosURLSearchParams.js":[function(require,module,exports) {
+},{"../utils.js":"../../node_modules/axios/lib/utils.js","../core/AxiosError.js":"../../node_modules/axios/lib/core/AxiosError.js","../platform/node/classes/FormData.js":"../../node_modules/axios/lib/helpers/null.js","buffer":"../../node_modules/buffer/index.js"}],"../../node_modules/axios/lib/helpers/AxiosURLSearchParams.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3375,6 +3375,24 @@ var _URLSearchParams = _interopRequireDefault(require("./classes/URLSearchParams
 var _FormData = _interopRequireDefault(require("./classes/FormData.js"));
 var _Blob = _interopRequireDefault(require("./classes/Blob.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _default = exports.default = {
+  isBrowser: true,
+  classes: {
+    URLSearchParams: _URLSearchParams.default,
+    FormData: _FormData.default,
+    Blob: _Blob.default
+  },
+  protocols: ['http', 'https', 'file', 'blob', 'url', 'data']
+};
+},{"./classes/URLSearchParams.js":"../../node_modules/axios/lib/platform/browser/classes/URLSearchParams.js","./classes/FormData.js":"../../node_modules/axios/lib/platform/browser/classes/FormData.js","./classes/Blob.js":"../../node_modules/axios/lib/platform/browser/classes/Blob.js"}],"../../node_modules/axios/lib/platform/common/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hasStandardBrowserWebWorkerEnv = exports.hasStandardBrowserEnv = exports.hasBrowserEnv = void 0;
+const hasBrowserEnv = exports.hasBrowserEnv = typeof window !== 'undefined' && typeof document !== 'undefined';
+
 /**
  * Determine if we're running in a standard browser environment
  *
@@ -3392,13 +3410,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @returns {boolean}
  */
-const isStandardBrowserEnv = (() => {
-  let product;
-  if (typeof navigator !== 'undefined' && ((product = navigator.product) === 'ReactNative' || product === 'NativeScript' || product === 'NS')) {
-    return false;
-  }
-  return typeof window !== 'undefined' && typeof document !== 'undefined';
-})();
+const hasStandardBrowserEnv = exports.hasStandardBrowserEnv = (product => {
+  return hasBrowserEnv && ['ReactNative', 'NativeScript', 'NS'].indexOf(product) < 0;
+})(typeof navigator !== 'undefined' && navigator.product);
 
 /**
  * Determine if we're running in a standard browser webWorker environment
@@ -3409,37 +3423,28 @@ const isStandardBrowserEnv = (() => {
  * `typeof window !== 'undefined' && typeof document !== 'undefined'`.
  * This leads to a problem when axios post `FormData` in webWorker
  */
-const isStandardBrowserWebWorkerEnv = (() => {
+const hasStandardBrowserWebWorkerEnv = exports.hasStandardBrowserWebWorkerEnv = (() => {
   return typeof WorkerGlobalScope !== 'undefined' &&
   // eslint-disable-next-line no-undef
   self instanceof WorkerGlobalScope && typeof self.importScripts === 'function';
 })();
-var _default = exports.default = {
-  isBrowser: true,
-  classes: {
-    URLSearchParams: _URLSearchParams.default,
-    FormData: _FormData.default,
-    Blob: _Blob.default
-  },
-  isStandardBrowserEnv,
-  isStandardBrowserWebWorkerEnv,
-  protocols: ['http', 'https', 'file', 'blob', 'url', 'data']
-};
-},{"./classes/URLSearchParams.js":"../../node_modules/axios/lib/platform/browser/classes/URLSearchParams.js","./classes/FormData.js":"../../node_modules/axios/lib/platform/browser/classes/FormData.js","./classes/Blob.js":"../../node_modules/axios/lib/platform/browser/classes/Blob.js"}],"../../node_modules/axios/lib/platform/index.js":[function(require,module,exports) {
+},{}],"../../node_modules/axios/lib/platform/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _index.default;
-  }
-});
+exports.default = void 0;
 var _index = _interopRequireDefault(require("./node/index.js"));
+var utils = _interopRequireWildcard(require("./common/utils.js"));
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./node/index.js":"../../node_modules/axios/lib/platform/browser/index.js"}],"../../node_modules/axios/lib/helpers/toURLEncodedForm.js":[function(require,module,exports) {
+var _default = exports.default = {
+  ...utils,
+  ..._index.default
+};
+},{"./node/index.js":"../../node_modules/axios/lib/platform/browser/index.js","./common/utils.js":"../../node_modules/axios/lib/platform/common/utils.js"}],"../../node_modules/axios/lib/helpers/toURLEncodedForm.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4062,7 +4067,7 @@ exports.default = void 0;
 var _utils = _interopRequireDefault(require("./../utils.js"));
 var _index = _interopRequireDefault(require("../platform/index.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var _default = exports.default = _index.default.isStandardBrowserEnv ?
+var _default = exports.default = _index.default.hasStandardBrowserEnv ?
 // Standard browser envs support document.cookie
 function standardBrowserEnv() {
   return {
@@ -4176,7 +4181,7 @@ exports.default = void 0;
 var _utils = _interopRequireDefault(require("./../utils.js"));
 var _index = _interopRequireDefault(require("../platform/index.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var _default = exports.default = _index.default.isStandardBrowserEnv ?
+var _default = exports.default = _index.default.hasStandardBrowserEnv ?
 // Standard browser envs have full support of the APIs needed to test
 // whether the request URL is of the same origin as current location.
 function standardBrowserEnv() {
@@ -4349,13 +4354,12 @@ var _default = exports.default = isXHRAdapterSupported && function (config) {
     }
     let contentType;
     if (_utils.default.isFormData(requestData)) {
-      if (_index.default.isStandardBrowserEnv || _index.default.isStandardBrowserWebWorkerEnv) {
+      if (_index.default.hasStandardBrowserEnv || _index.default.hasStandardBrowserWebWorkerEnv) {
         requestHeaders.setContentType(false); // Let the browser set it
-      } else if (!requestHeaders.getContentType(/^\s*multipart\/form-data/)) {
-        requestHeaders.setContentType('multipart/form-data'); // mobile/desktop app frameworks
-      } else if (_utils.default.isString(contentType = requestHeaders.getContentType())) {
+      } else if ((contentType = requestHeaders.getContentType()) !== false) {
         // fix semicolon duplication issue for ReactNative FormData implementation
-        requestHeaders.setContentType(contentType.replace(/^\s*(multipart\/form-data);+/, '$1'));
+        const [type, ...tokens] = contentType ? contentType.split(';').map(token => token.trim()).filter(Boolean) : [];
+        requestHeaders.setContentType([type || 'multipart/form-data', ...tokens].join('; '));
       }
     }
     let request = new XMLHttpRequest();
@@ -4457,7 +4461,7 @@ var _default = exports.default = isXHRAdapterSupported && function (config) {
     // Add xsrf header
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
-    if (_index.default.isStandardBrowserEnv) {
+    if (_index.default.hasStandardBrowserEnv) {
       // Add xsrf header
       // regarding CVE-2023-45857 config.withCredentials condition was removed temporarily
       const xsrfValue = (0, _isURLSameOrigin.default)(fullPath) && config.xsrfCookieName && _cookies.default.read(config.xsrfCookieName);
@@ -4768,7 +4772,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.VERSION = void 0;
-const VERSION = exports.VERSION = "1.6.0";
+const VERSION = exports.VERSION = "1.6.1";
 },{}],"../../node_modules/axios/lib/helpers/validator.js":[function(require,module,exports) {
 'use strict';
 
@@ -5461,7 +5465,7 @@ var login = exports.login = /*#__PURE__*/function () {
           _context.next = 3;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:8800/api/v1/users/login',
+            url: '/api/v1/users/login',
             data: {
               email: email,
               password: password
@@ -5504,7 +5508,7 @@ var logout = exports.logout = /*#__PURE__*/function () {
           _context2.next = 4;
           return (0, _axios.default)({
             method: 'GET',
-            url: 'http://127.0.0.1:8800/api/v1/users/logout'
+            url: '/api/v1/users/logout'
           });
         case 4:
           res = _context2.sent;
@@ -5537,7 +5541,7 @@ var signup = exports.signup = /*#__PURE__*/function () {
           _context3.next = 4;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:8800/api/v1/users/signup',
+            url: '/api/v1/users/signup',
             data: {
               name: name,
               email: email,
@@ -5591,7 +5595,7 @@ var updateProfile = exports.updateProfile = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
-          url = 'http://127.0.0.1:8800/api/v1/users/updateUserData';
+          url = '/api/v1/users/updateUserData';
           _context.next = 4;
           return (0, _axios.default)({
             method: 'PATCH',
@@ -5627,7 +5631,7 @@ var makeReivew = exports.makeReivew = /*#__PURE__*/function () {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           _context2.prev = 0;
-          url = 'http://127.0.0.1:8800/api/v1/reviews/';
+          url = '/api/v1/reviews/';
           _context2.next = 4;
           return (0, _axios.default)({
             method: 'POST',
@@ -5665,7 +5669,7 @@ var makePurchase = exports.makePurchase = /*#__PURE__*/function () {
         case 0:
           _context3.prev = 0;
           // console.log('make Purchase');
-          url = "http://127.0.0.1:8800/api/v1/purchases/checkout-session/".concat(data);
+          url = "/api/v1/purchases/checkout-session/".concat(data);
           _context3.next = 4;
           return (0, _axios.default)({
             method: 'GET',
@@ -5677,14 +5681,14 @@ var makePurchase = exports.makePurchase = /*#__PURE__*/function () {
             // console.log(res);
             location.assign(res.data.session.url);
           } else {
-            location.assign('http://127.0.0.1:8800/login');
+            location.assign('/login');
           }
           _context3.next = 12;
           break;
         case 8:
           _context3.prev = 8;
           _context3.t0 = _context3["catch"](0);
-          location.assign('http://127.0.0.1:8800/login');
+          location.assign('/login');
           (0, _alerts.showAlert)('login_failure', _context3.t0.response.data.message);
         case 12:
         case "end":
@@ -5722,7 +5726,7 @@ if (buyProduct) {
       ele.addEventListener('click', function (e) {
         e.target.textContent = 'Processing';
         var productId = e.target.dataset.productId;
-        console.log(productId);
+        // console.log(productId);
         // location.assign(
         //   `http://127.0.0.1:8800/api/v1/purchases/checkout-session/${productId}`
         // );
@@ -5824,7 +5828,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50540" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50226" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

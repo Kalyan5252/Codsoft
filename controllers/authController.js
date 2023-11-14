@@ -14,7 +14,7 @@ const signToken = (id) => {
 
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
-  console.log('created token');
+  // console.log('created token');
   const cookieOptions = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
@@ -22,7 +22,7 @@ const createSendToken = (user, statusCode, res) => {
     httpOnly: true,
   };
   // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
-  console.log('sending token');
+  // console.log('sending token');
   res.cookie('jwt', token, cookieOptions);
 
   // Remove password from output
@@ -108,8 +108,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     role: req.body.role,
   });
   const url = `${req.protocol}://${req.get('host')}/profile`;
-  console.log(url);
-  console.log(newUser);
+  // console.log(newUser);
   await new Email(newUser, url).sendWelcome();
   createSendToken(newUser, 201, res);
 });

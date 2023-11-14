@@ -88,9 +88,9 @@ block content
               input#address.form_input(type='text', value=`${user.address?user.address : ''}`)
               script.
                 function adjustWidth(input) {
-                  console.log('got into fn');
-                  console.log(input);
-                  console.log(input.value);
+                  //- console.log('got into fn');
+                  //- console.log(input);
+                  //- console.log(input.value);
                   if(input.value.length != 0){
                   input.style.width = input.value.length + 'ch';
                   } else {
