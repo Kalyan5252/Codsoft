@@ -1,0 +1,117 @@
+extends base
+include reivew_mixin
+
+block content
+  nav#navigation.navigation
+    a.nav__head(href='/') TSound
+    ul.nav__list
+      li.nav__item
+        a(href='/') Home
+      li.nav__item.active
+        a(href='/shop') Shop
+      li.nav__item
+        a(href='#') Services
+      li.nav__item
+        a(href='/support') Support
+    if user
+      .nav__buttons
+        a(href='#')
+          i.bx.bxs-cart
+        a.profile(href='/profile')
+          img(src=`/images/users/${user.photo}`)
+    else
+      .nav__buttons
+        a.sign_fields(href='/login') Login
+        a.sign_fields(href='/signup') Sign Up
+  main
+    a.back_btn(href='/shop') Back
+    .product__detail
+      .product__imgsec
+        .product__cover
+          img.product_coverimg(src=`/images/products/${product.imageCover}`, alt='images')
+        .images-section
+          .product__images
+            for image in product.images
+              img.pr_image(src=`/images/products/${image}`, alt='images')
+      .product__info
+        h3.heading-primary= product.productName
+        .product__sdetails
+          p.card__text= product.description
+          .product_details
+            h4.brand
+              | Brand: 
+              span= product.brand
+            h4.brand
+              | Model: 
+              span= product.model
+            h4.brand
+              | Year: 
+              span= product.year
+          .product__features
+            .card_feature.card_icons
+              i.bx.bx-bluetooth
+              h2= product.connectivity
+            .card_feature.card_icons
+              i.bx.bxl-audible
+              h2= product.channel
+            .card_feature.card_icons
+              i.bx.bx-power-off
+              h2= product.power
+            .card_feature.card_icons
+              i.bx.bx-abacus
+              h2= product.config
+          .product__details_2
+            .card__price
+              i.bx.bx-rupee
+              h1.card__price_data= product.price
+                span /-
+            a.card__review.product_review(href='#reviews')
+              h2.review__rating.product__rating
+                i.bx.bxs-star
+                span= product.ratingsAverage
+              h2.review_count=`(${product.ratingsQuantity})`
+          .product__buy
+            .product_card
+              a.card_cart_data.product_cart.cart(href='#')
+                i.bx.bxs-cart
+                | Add To Cart
+            .product_card
+              a.card_cart_data.product_cart.details(href='#',data-product-id=`${product.id}`)
+                i.bx.bxs-credit-card
+                | Buy
+          .product_about
+            h4 About this product
+            for detail in product.details
+              p= detail 
+    #reviews.product_reviews_sec
+      h4.review_title Reviews
+      .section-reviews
+        .reviews
+          for review in product.reviews
+            +reviewCard(review)
+      if user
+        .new__review
+          button#add_review.add_review
+            | Add a Review to this Product?
+          form.newRatingSec#userReviewForm
+            .add_rating
+              h3.rating_label Select Rating:
+              .rating-container
+                input#star1(type='radio', name='rating', value='1')
+                label(for='star1')
+                input#star2(type='radio', name='rating', value='2')
+                label(for='star2')
+                input#star3(type='radio', name='rating', value='3')
+                label(for='star3')
+                input#star4(type='radio', name='rating', value='4')
+                label(for='star4')
+                input#star5(type='radio', name='rating', value='5')
+                label(for='star5')
+            .add_review_detail
+              h3.rating_label Review:
+              textarea#review_context(name='', cols='50', rows='5')
+            button.submit_review Submit
+
+
+  script(src='/scripts/productPage.js')
+  script(src='/scripts/bundle.js')

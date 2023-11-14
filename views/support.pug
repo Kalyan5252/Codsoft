@@ -1,0 +1,31 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title #{title}
+  link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css', rel='stylesheet')
+  link(rel='stylesheet', type='text/css', href='/style.css')
+  title= Login
+  link(rel="shortcut icon" type="image/png" href="/images/icon.png")
+body
+  .login
+    .login__page
+      .login__image
+        img#login__image(src='/images/products/audioSpectrum.png', alt='audioSpectrum')
+      .login_data
+        .login__form
+          h2.heading-primary.login_heading Support
+          form.form.form--login
+            .form__group
+              label.form__label(for='email') Your Email
+              input#email.form__input(type='email', placeholder='you@example.com', required='required')
+            .form__group
+              label.form__label(for='mobile') Your Mobile
+              input#mobile.form__input(type='tel', placeholder='+91', required='required')
+            .form__group.ma-bt-md
+              label.form__label(for='query') Your Query
+              //- input#query.form__input(type='text', placeholder='••••••••', required='required')
+              textarea#query.form__textarea(name='', cols='50', rows='5')
+            .form__submit
+              button.btn.btn--green Submit
+  //- script(src="/scripts/bundle.js")

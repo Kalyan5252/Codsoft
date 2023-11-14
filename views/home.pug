@@ -1,0 +1,190 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{title}
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/style.css')
+    title= title
+    link(rel="shortcut icon" type="image/png" href="/images/icon.png")
+
+    nav#navigation.navigation
+      a.nav__head(href='/') TSound
+      ul.nav__list
+        li.nav__item.active
+          a(href='/') Home
+        li.nav__item
+          a(href='/shop') Shop
+        li.nav__item
+          a(href='#') Services
+        li.nav__item
+          a(href='/support') Support
+      if user
+        .nav__buttons
+          a(href='#')
+            i.bx.bxs-cart
+          a.profile(href='/profile')
+            img(src=`/images/users/${user.photo}`)
+      else
+        .nav__buttons
+          a.sign_fields(href='/login') Login
+          a.sign_fields(href='/signup') Sign Up
+    .home_body
+      .overlay
+        .overlay__text
+          h1 TSOUND
+        // <img src="./images/Tsound.jpg" alt="" />
+        video(src='/videos/Pexels Bgs.mp4', autoplay='', loop='', muted='', speed='0.5')
+        button.nav__but(value='#header__sec') &gt;
+      section#header__sec
+        .section-1
+          img.images.left(src='/images/products/Dolby-Atmos-Home-Speaker-Setup-Header.webp', alt='Image')
+          .section__content.right
+            h1.section__data Crafting Home Theaters to Perfection
+        .section-1
+          .section__content.left
+            h1.section__data Unleash the Power of Dolby
+          img.images.dolby.right(src='/images/products/dolby.webp', alt='Image')
+        .section-1
+          img.images.left(src='/images/products/Dolby.jpeg', alt='Image')
+          .section__content.right
+            h1.section__data Experience Audio Like Never Before
+        hr
+      section.design_cards
+        h1.section__title Our Top Designs
+        .slider
+          .slide_container
+            img#slide-1.slide(src='/images/products/design-7.jpg', alt='image')
+          .slide_container
+            img#slide-2.slide(src='/images/products/design-6.jpg', alt='image')
+          .slide_container
+            img#slide-3.slide(src='/images/products/design-8.jpg', alt='image')
+          .slide_container
+            img#slide-4.slide(src='/images/products/design-9.jpg', alt='image')
+        button.slide_arr.slide_arr_left &larr;
+        button.slide_arr.slide_arr_right &rarr;
+        .slide_indicator
+        // <hr />
+      section
+        h1 Our Features
+        .section__image
+          img(src='/images/products/features.png', alt='')
+        hr
+      .section__links
+        .section_linkbox.link1
+          h1 Checkout Our Trusted Products
+          a.section_link(href='/shop') Products
+        .section_linkbox.link2
+          h1 Checkout Our Services
+          a.section_link(href='./gui4.html') Services
+    section.section.sec_footer
+      footer.footer
+        ul.footer_list
+          li.footer_item
+            a.footer_link(href='#') About Us
+          li.footer_item
+            a.footer_link(href='#') Careers
+          li.footer_item
+            a.footer_link(href='#') Terms and Conditions
+          li.footer_item
+            a.footer_link(href='#') Contact Us
+        // <hr>
+        p.footer__copyright
+          | &copy; Copyright by
+          a.footer__link(target='_blank', href='https://www.linkedin.com/in/kalyan-pendem-3030b226a/')
+            span.highlight_2  KALYAN.
+    script.
+      const slides = document.querySelectorAll(".slide_container");
+      const left_sbtn = document.querySelector(".slide_arr_left");
+      const right_sbtn = document.querySelector(".slide_arr_right");
+      const slide_box = document.querySelector(".slide_indicator");
+      const moveBtn = document.querySelector(".nav__but");
+      const id = document.getElementById("slide-4");
+      const Sections = document.querySelectorAll("section");
+      const navigation = document.getElementById("navigation");
+      const headerSec = document.getElementById("header__sec");
+      navigation.style.position = "absolute";
+      navigation.style.background = "rgba(0, 0, 0, 0.5)";
+      const createDots = function () {
+      slides.forEach(function (_, i) {
+      slide_box.insertAdjacentHTML(
+      "beforeend",
+      `<button class="slide_dot" data-slide="${i}">.</button>`
+      );
+      });
+      };
+      createDots();
+      moveBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      //- const url =window.location.href.split("index.html")[0] + "index.html" + e.target.value;
+      //- const url = window.location.href. + "/#";
+      const url = new URL(window.location.href);
+      const outurl = `/${e.target.value}`
+      console.log(outurl);
+      location.assign(outurl);
+      //- window.location = outurl;
+      });
+      // window.addEventListener("scroll", function (e) {
+      //   console.log(id.getBoundingClientRect());
+      // });
+      const maxSlides = slides.length;
+      let currentSlide = 1;
+      const nextSlide = function () {
+      if (currentSlide === maxSlides - 1) {
+      currentSlide = 0;
+      } else {
+      currentSlide++;
+      }
+      goToSlide(currentSlide);
+      active_dot(currentSlide);
+      };
+      const previousSlide = function () {
+      if (currentSlide === 0) {
+      currentSlide = maxSlides - 1;
+      } else {
+      currentSlide--;
+      }
+      goToSlide(currentSlide);
+      active_dot(currentSlide);
+      };
+      const goToSlide = function (slide) {
+      slides.forEach((s, i) => {
+      s.style.transform = `translateX(${100 * (i - slide)}%)`;
+      s.classList.remove("active");
+      });
+      slides[slide].classList.add("active");
+      };
+      left_sbtn.addEventListener("click", previousSlide);
+      right_sbtn.addEventListener("click", nextSlide);
+      const active_dot = function (s) {
+      document
+      .querySelectorAll(".slide_dot")
+      .forEach((sl) => sl.classList.remove("slide_dot--active"));
+      document
+      .querySelector(`.slide_dot[data-slide="${s}"]`)
+      .classList.add("slide_dot--active");
+      };
+      goToSlide(1);
+      active_dot(1);
+      slide_box.addEventListener("click", function (e) {
+      if (e.target.classList.contains("slide_dot")) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      active_dot(slide);
+      }
+      });
+      const reveal_section = function (entries, observser) {
+      const [entry] = entries;
+      if (!entry.isIntersecting) return;
+      entry.target.classList.remove("section_hidden");
+      observser.unobserve(entry.target);
+      };
+      const sectionObserver = new IntersectionObserver(reveal_section, {
+      root: null,
+      threshold: 0.15,
+      });
+      Sections.forEach(function (el) {
+      sectionObserver.observe(el);
+      el.classList.add("section_hidden");
+      });

@@ -1,0 +1,55 @@
+extends base
+block content
+  nav#navigation.navigation
+    a.nav__head(href='/') TSound
+    ul.nav__list
+      li.nav__item
+        a(href='/') Home
+      li.nav__item.active
+        a(href='/shop') Shop
+      li.nav__item
+        a(href='#') Services
+      li.nav__item
+        a(href='/support') Support
+    if user
+      .nav__buttons
+        a(href='#')
+          i.bx.bxs-cart
+        a.profile(href='/profile')
+          img(src=`/images/users/${user.photo}`)
+    else
+      .nav__buttons
+        a.sign_fields(href='/login') Login
+        a.sign_fields(href='/signup') Sign Up
+  main
+    h1 Products we trust in
+    .overview
+      .card_container
+        for product in products
+          .card
+            .card__header
+              .card__picture
+                img.card__picture-img(src=`/images/products/${product.imageCover}`, alt='Sound Image')
+            h3.heading-tertirary= product.productName
+            .card__details
+              p.card__text= `${product.description}`
+            .card__details_2
+              .card__price
+                i.bx.bx-rupee
+                h1.card__price_data= product.price
+                  span /-
+              .card__review
+                h2.review__rating
+                  i.bx.bx-star
+                  span= product.ratingsAverage
+                h2.review_count= `(${product.ratingsQuantity})`
+            .card__footer
+              .card__cart
+                button.card_cart_data.cart(class ='book-product',data-product-id=`${product.id}`)
+                  i.bx.bxs-purchase-tag
+                  | Buy Now
+              .card__cart
+                a.card_cart_data.details_page(href=`/shop/${product.slug}`)
+                  i.bx.bxs-detail
+                  | Details
+  script(src="/scripts/bundle.js")

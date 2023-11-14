@@ -1,0 +1,106 @@
+extends base
+
+block content 
+  nav#navigation.navigation
+      a.nav__head(href='/') TSound
+      ul.nav__list
+        li.nav__item
+          a(href='/') Home
+        li.nav__item
+          a(href='/shop') Shop
+        li.nav__item
+          a(href='#') Services
+        li.nav__item
+          a(href='/support') Support
+      if user
+        .nav__buttons
+          a(href='#')
+            i.bx.bxs-cart
+          a.profile(href='/profile')
+            img(src=`/images/users/${user.photo}`)
+      else
+        .nav__buttons
+          a.sign_fields(href='/login') Login
+          a.sign_fields(href='/signup') Sign Up
+  main
+    .profile_page
+      .profile_page_menu
+        ul.side_menu
+          li.side_bar.side_bar-active
+            a(href='#')
+              i.bx.bx-id-card
+              | My Profile
+          li.side_bar
+            a(href='#')
+              i.bx.bx-cart
+              |My Orders
+          li.side_bar
+            a(href='#')
+              i.bx.bx-message-square-edit
+              |My Reviews
+          li.side_bar
+            a(href='#')
+              i.bx.bx-receipt
+              | My Receipts
+          li.side_bar.logout 
+            a(href="#") 
+              i.bx.bx-receipt
+              | Logout
+        if user.role === 'admin'
+          .admin_menu
+            h4.admin_heading Admin
+            ul.side_menu
+              li.side_bar
+                a(href='/profile/manageProducts')
+                  i.bx.bxl-product-hunt
+                  | Manage Products
+              li.side_bar
+                a(href='#')
+                  i.bx.bxs-user
+                  | Manage Users
+              li.side_bar
+                a(href='#')
+                  i.bx.bxs-message-edit
+                  | Manage Reviews
+              li.side_bar
+                a(href='#')
+                  i.bx.bxs-analyse
+                  | Manage Orders
+      .profile_content
+        .profile_content_container
+          h1.heading_profile Your Account Settings
+          form.form_user
+            .form_data_dp
+              img.form_user-profile(src=`/images/users/${user.photo}`, alt='profile')
+              input#photo.form__upload(type='file', accept='image/*', name='photo')
+              label(for='photo') Choose New Photo
+            .form_data
+              label.form_label(for='name') Name
+              input#name.form_input(type='text', value=`${user.name}`)
+            .form_data
+              label.form_label(for='email') Email
+              input#email.form_input(type='text', value=`${user.email}`)
+            .form_data
+              label.form_label(for='mobile') Mobile
+              input#mobile.form_input(type='text', value=`${user.mobile?user.mobile: ''}`)
+            .form_data
+              label.form_label(for='address') Address
+              input#address.form_input(type='text', value=`${user.address?user.address : ''}`)
+              script.
+                function adjustWidth(input) {
+                  console.log('got into fn');
+                  console.log(input);
+                  console.log(input.value);
+                  if(input.value.length != 0){
+                  input.style.width = input.value.length + 'ch';
+                  } else {
+                    input.style.width = 20 + 'ch';
+                  }
+                }
+                adjustWidth(document.getElementById('address'));
+            //- .form_data.form__photo-upload
+            //-   img.form__user-photo(src=`/images/users/${user.photo}`)
+              
+            .from_data.save
+              button.btn__save Save Changes
+  script(src="/scripts/bundle.js")

@@ -1,0 +1,226 @@
+[
+  {
+    "productName": "Sony Ht-S20R",
+    "description": "5.1ch Home Cinema Soundbar System | HT-S20R",
+    "brand": "Sony",
+    "model": "HT-S20R",
+    "year": 2022,
+    "connectivity": "Wireless Connectivity",
+    "channel": "5.1 Channel",
+    "power": "400 Watt",
+    "config": "User Configurable",
+    "price": 23700,
+    "ratingsAverage": 4.2,
+    "ratingsQuantity": 200,
+    "details": [
+      "Cinema mode: Feel and hear the action all around you, as sound travels behind you and draws you into the movie experience.",
+      "Music mode: Hear all the vividness and richness of your favourite music in fine detail.",
+      "Voice mode: Whether it's the morning news or a season finale, this mode tailors sound settings to accentuate speech so you won't miss a word.",
+      "Night mode: Watching a movie at night? This function optimises the sound balance so you can hear everything clearly even at low volume levels."
+    ],
+    "images": [
+      "sony-ht-s20r-image3.webp",
+      "sony-ht-s20r-cover.webp",
+      "sony-ht-s20r-image1.webp",
+      "sony-ht-s20r-image2.webp"
+    ],
+    "imageCover": "sony-ht-s20r-cover.png"
+  },
+  {
+    "productName": "Samsung HW-B67E",
+    "description": "5.1 Ch Soundbar with built-in Centre Firing Speakers & 17cm (6.5\") Subwoofer",
+    "brand": "Samsung",
+    "model": "HW-B67E",
+    "year": 2022,
+    "connectivity": "Wireless Connectivity",
+    "channel": "5.1 Channel",
+    "power": "520 Watt",
+    "config": "User Configurable",
+    "price": 30000,
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 300,
+    "details": [
+      "Subwoofer Type ( Active / Passive / Wireless, Bulit-in )",
+      "Captivating audio technology that moves the sound around you",
+      "DTS Virtual X creates spacious 3D sound, including the feeling of height through audio processing techniques.",
+      "Kick your listening experience up a notch with the subwoofer included with your Soundbar. It emphasizes bass for incredible sound that hits deeper and smoother notes — delivering theater-quality audio with your Soundbar.",
+      "Experience crystal clear dialogue with a dedicated center channel speaker. It provides balanced sound from one end to the other and beautifully completes your home entertainment experience.",
+      "Night Mode , Voice EQ"
+    ],
+    "images": [
+      "Samsung-5.1ch-B67E-image-1.avif",
+      "Samsung-5.1ch-B67E-image-3.avif",
+      "Samsung-5.1ch-B67E-image3.avif",
+      "Samsung-5.1ch-B67E-image4.avif",
+      "Samsung-5.1ch-B67E-image5.avif",
+      "Samsung-5.1ch-B67E-cover.avif"
+    ],
+    "imageCover": "Samsung-5.1ch-B67E-cover.png"
+  },
+  {
+    "productName": "JBL Bar 1300",
+    "description": "11.1ch Cinema Soundbar System | JBL 1300",
+    "brand": "JBL",
+    "model": "1300",
+    "year": 2021,
+    "connectivity": "Wireless Ai Connectivity",
+    "channel": "11.1.4 Channel",
+    "power": "1170 Watt",
+    "config": "User Configurable",
+    "price": 149999,
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 20,
+    "details": [
+      "Immerse yourself in theater-quality 3D sound. With four up-firing drivers in the main bar and two more in the detachable speakers, the JBL Bar 1300 delivers true Dolby Atmos® and DTS:X together with MultiBeam™ for an enhanced 3D surround sound experience.",
+      "Enjoy real surround sound without the hassle of extra wires and power connections. Just place the two detachable battery-powered surround speakers behind you and get swept away in amazing audio.",
+      "Voice mode: Whether it's the morning news or a season finale, this mode tailors sound settings to accentuate speech so you won't miss a word.",
+      "Night mode: Watching a movie at night? This function optimises the sound balance so you can hear everything clearly even at low volume levels.",
+      "Built-In Wi-Fi with AirPlay, Alexa Multi-Room Music and Chromecast"
+    ],
+    "images": [
+      "JBL-Bar-1300-cover.webp",
+      "JBL-bar-1300-image1.png",
+      "JBL-bar-1300-image2.png",
+      "JBL-bar-1300-image3.png",
+      "JBL-Bar-1300-image4.webp"
+    ],
+    "imageCover": "JBL-Bar-1300-cover.webp"
+  },
+  {
+    "productName": "Samsung Sound Tower",
+    "description": "2.0Ch Sound Tower T70",
+    "brand": "Samsung",
+    "model": "T70",
+    "year": 2020,
+    "connectivity": "Wireless Connectivity",
+    "channel": "2.0 Channel",
+    "power": "1500 Watt",
+    "config": "User Configurable",
+    "price": 33900,
+    "ratingsAverage": 4,
+    "ratingsQuantity": 100,
+    "details": [
+      "Experience wider sound stage with Bi-directional room-filling sound.",
+      "Go wall-to-wall with Samsung Sound Tower’s unique Bi-directional design. It delivers your music to a wider area for a room-filling sound experience that’s ready to raise the roof.",
+      "Get the perfect bass drop with the 10-inch built-in woofer. It has a long-excursion bass unit to deliver deeper, more powerful sound. You won’t just hear it, you’ll feel it.",
+      "Samsung Sound Tower offers a variety of fun light modes, including Party, Ambient, Dance, Thunder Bolt, Star —and it’s easy to adjust the effects using the dedicated app on your mobile device.",
+      "Get your party moving just right with an app that’s perfect for DJing."
+    ],
+    "images": [
+      "samsung-tower-cover.webp",
+      "samsung-tower-image1.webp",
+      "samsung-tower-image2.webp",
+      "samsung-tower-image3.webp"
+    ],
+    "imageCover": "samsung-tower-cover.png"
+  },
+  {
+    "productName": "Acoustic Energy Ae1",
+    "description": "Acoustic Energy AE1 Active LoudSpeakers (Pair)",
+    "brand": "AE",
+    "model": "Ae1 Active",
+    "year": 2019,
+    "connectivity": "Wired",
+    "channel": "2.0 Channel",
+    "power": "1500 Watt",
+    "config": "Studio Config",
+    "price": 132900,
+    "ratingsAverage": 3.9,
+    "ratingsQuantity": 10,
+    "details": [
+      "The changing roles of hifi equipment mean that audio systems themselves are changing shape.",
+      "The increasing number of products with integrated pre-amplifiers mean that many customers are searching for an equally convenient speaker to connect them to.",
+      "The AE1 Active is a two way standmount speaker with integrated class A/B amplification and fully active filter networks.",
+      "The increasing number of products with integrated pre-amplifiers mean that many customers are searching for an equally convenient speaker to connect them to.",
+      "The speakers also feature Acoustic Energy’s proprietary aluminium dome tweeter with our unique WDT waveguide for improved coverage and room integration."
+    ],
+    "images": [
+      "Ae-cover.avif",
+      "Ae-image-1.webp",
+      "Ae-image2.webp",
+      "Ae-image3.webp"
+    ],
+    "imageCover": "Ae-cover.png"
+  },
+  {
+    "productName": "Govo 950",
+    "description": "GoSurround 950",
+    "brand": "Govo",
+    "model": "950",
+    "year": 2021,
+    "connectivity": "Wireless Connectivity",
+    "channel": "5.1 Channel",
+    "power": "280 Watt",
+    "config": "User Configurable",
+    "price": 10000,
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 162,
+    "details": [
+      "This soundbar features Bluetooth V5.3, HDMI, OPT, AUX, and USB connectivity for easy device pairing.",
+      "Its stylish remote control offers manual control of bass and treble, while 5 auto equalizer modes are available for customizing the sound to your preferences. The soundbar also has integrated controls and an LED screen for easy operation.",
+      "The GOVO GoSurround 950 soundbar has a premium and glossy finish that adds sophistication to any room.",
+      "The GOVO GoSurround 950 soundbar is not just a powerful and versatile audio system for your home entertainment."
+    ],
+    "images": [
+      "govo-950-image1.jpg",
+      "govo-950-cover.jpg",
+      "govo-950-image2.png",
+      "govo-950-image3.png"
+    ],
+    "imageCover": "govo-950-cover.png"
+  },
+  {
+    "productName": "Sony Ht-S40R",
+    "description": "5.1ch Home Cinema Soundbar System | HT-S40R",
+    "brand": "Sony",
+    "model": "HT-S40R",
+    "year": 2022,
+    "connectivity": "Wireless Connectivity",
+    "channel": "5.1 Channel",
+    "power": "600 Watt",
+    "config": "User Configurable",
+    "price": 35000,
+    "ratingsAverage": 4.2,
+    "ratingsQuantity": 200,
+    "details": [
+      "Cinema mode: Feel and hear the action all around you, as sound travels behind you and draws you into the movie experience.",
+      "For an exceptional audio experience, a combination of soundbar, subwoofer and wireless rear speakers deliver a dynamic surround sound that fills your room.",
+      "Voice mode: Whether it's the morning news or a season finale, this mode tailors sound settings to accentuate speech so you won't miss a word.",
+      "With a wireless amplifier to power the rear speakers, there are no wires between the front and the rear of your room to get in the way. The subwoofer and soundbar also share a single power connection, so the system can deliver cinema sound without clutter or complexity.."
+    ],
+    "images": [
+      "sony-ht-s40r-image2.webp",
+      "sony-ht-s40r-cover.webp",
+      "sony-ht-s40r-image1.jpg",
+      "sony-ht-s40r-image3.webp"
+    ],
+    "imageCover": "sony-ht-s40r-cover.png"
+  },
+  {
+    "productName": "Govo 945",
+    "description": "GoSurround 945",
+    "brand": "Govo",
+    "model": "945",
+    "year": 2020,
+    "connectivity": "Wireless Connectivity",
+    "channel": "5.1 Channel",
+    "power": "120 Watt",
+    "config": "User Configurable",
+    "price": 6000,
+    "ratingsAverage": 3.9,
+    "ratingsQuantity": 100,
+    "details": [
+      "This soundbar features Bluetooth V5.3, HDMI, OPT, AUX, and USB connectivity for easy device pairing.",
+      "Its stylish remote control offers manual control of bass and treble, while 5 auto equalizer modes are available for customizing the sound to your preferences. The soundbar also has integrated controls and an LED screen for easy operation.",
+      "The GOVO GoSurround 950 soundbar has a premium and glossy finish that adds sophistication to any room.",
+      "The GOVO GoSurround 950 soundbar is not just a powerful and versatile audio system for your home entertainment."
+    ],
+    "images": [
+      "govo-cover.jpg",
+      "govo-image1.png",
+      "govo-image2.png",
+      "govo-image3.png"
+    ],
+    "imageCover": "govo-cover.png"
+  }
+]

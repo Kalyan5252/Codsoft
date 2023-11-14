@@ -1,0 +1,74 @@
+extends base
+
+block content 
+  nav#navigation.navigation
+      a.nav__head(href='/') TSound
+      ul.nav__list
+        li.nav__item
+          a(href='/') Home
+        li.nav__item
+          a(href='/shop') Shop
+        li.nav__item
+          a(href='#') Services
+        li.nav__item
+          a(href='#') Support
+      if user
+        .nav__buttons
+          a(href='#')
+            i.bx.bxs-cart
+          a.profile(href='/profile')
+            img(src=`/images/users/${user.photo}`)
+      else
+        .nav__buttons
+          a.sign_fields(href='/login') Login
+          a.sign_fields(href='/signup') Sign Up
+  main
+    .profile_page
+      .profile_page_menu
+        ul.side_menu
+          li.side_bar
+            a(href='#')
+              i.bx.bx-id-card
+              | My Profile
+          li.side_bar
+            a(href='#')
+              i.bx.bx-cart
+              |My Orders
+          li.side_bar
+            a(href='#')
+              i.bx.bx-message-square-edit
+              |My Reviews
+          li.side_bar
+            a(href='#')
+              i.bx.bx-receipt
+              | My Receipts
+          li.side_bar.logout 
+            a(href="#") 
+              i.bx.bx-receipt
+              | Logout
+        if user.role === 'admin'
+          .admin_menu
+            h4.admin_heading Admin
+            ul.side_menu
+              li.side_bar.side_bar-active
+                a(href='#')
+                  i.bx.bxl-product-hunt
+                  | Manage Products
+              li.side_bar
+                a(href='#')
+                  i.bx.bxs-user
+                  | Manage Users
+              li.side_bar
+                a(href='#')
+                  i.bx.bxs-message-edit
+                  | Manage Reviews
+              li.side_bar
+                a(href='#')
+                  i.bx.bxs-analyse
+                  | Manage Orders
+      .profile_content
+        .profile_content_container
+          h1.heading_profile Manage Products
+          .product__container
+             
+  script(src="/scripts/bundle.js")
