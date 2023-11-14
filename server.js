@@ -29,7 +29,7 @@ mongoose
   .catch((err) => console.log('Error: ', err));
 
 //SERVER AND PORT
-const port = 8800;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Accessing Via Port ${port}`);
 });
