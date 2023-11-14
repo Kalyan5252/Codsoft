@@ -352,6 +352,7 @@
     "negotiator": "^0.6.3",
     "next-tick": "^0.2.2",
     "no-case": "^2.3.2",
+    "node": "^21.1.0",
     "nodemailer": "^6.9.7",
     "noncharacters": "^1.1.0",
     "nopt": "^1.0.10",
@@ -526,8 +527,5 @@
     "build:js": "parcel build ./public/scripts/index.js --out-dir ./public/scripts --out-file bundle.js"
   },
   "author": "KALYAN",
-  "license": "ISC",
-  "engines": {
-    "node": ">=10.0.0"
-  }
+  "license": "ISC"
 }
